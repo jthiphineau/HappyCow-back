@@ -9,9 +9,9 @@ const encBase64 = require("crypto-js/enc-base64");
 const User = require("../models/User");
 
 router.post("/user/sign_up", async (req, res) => {
-  console.log(req.query);
   try {
     const user = await User.findOne({ email: req.fields.email });
+
     if (user) {
       res.json({ message: "This email already has an account." });
     } else {
